@@ -11,7 +11,17 @@
 
     // Get fragments from sequence
     private string[] GetFragments(int ORF, int size) =>
-        Data.Skip(ORF).Chunk(size).Select(chars => new string(chars)).ToArray();
+        // start reading Data string at character index ORF
+        Data.Skip(ORF)
+
+            // split the string in "chunks" of size 'size'
+            .Chunk(size)
+            
+            // create a string from each one of these char chunks: ['A','B','C'] becomes "ABC"
+            .Select(chars => new string(chars))
+            
+            // return all the results as a string[] array 
+            .ToArray();
 }
 
 record ReferenceCodon(string Codon)
