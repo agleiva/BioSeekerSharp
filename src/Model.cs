@@ -21,5 +21,3 @@ record ReferenceCodon(string Codon)
 }
 
 record CodonConservationRate(string Codon, int ReferenceCount, int ConservationCount);
-
-record ConservationRates(CodonConservationRate[] CodonRates, CodonConservationRate[] BicodonRates);

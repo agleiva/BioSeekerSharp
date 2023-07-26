@@ -1,4 +1,4 @@
-﻿static class CalculateConservationRates
+﻿record ConservationRates(CodonConservationRate[] CodonRates, CodonConservationRate[] BicodonRates)
 {
     /// <summary>
     /// Function to calculate codon and codon pair conservation rates

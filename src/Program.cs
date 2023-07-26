@@ -53,7 +53,7 @@ if (sequences.Any())
 
         // Get all conservation rates for codons and bicodons from the sequences obtained from the files
         var conservationRates =
-            sequences.Select(s => CalculateConservationRates.FromSequences(s, ORF))
+            sequences.Select(s => ConservationRates.FromSequences(s, ORF))
                      .ToArray();
 
         // get all codon and bicodon conservation rates
