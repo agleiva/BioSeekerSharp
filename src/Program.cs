@@ -48,6 +48,9 @@ if (sequences.Any())
     // Iterate ORF from 0 to 2
     for (int ORF = 0; ORF <= 2; ORF++)
     {
+        Console.WriteLine("-------------------------------------------");
+        Console.WriteLine($"Calculating Conservation Rates for ORF: {ORF}");
+
         // Get all conservation rates for codons and bicodons from the sequences obtained from the files
         var conservationRates =
             sequences.Select(s => CalculateConservationRates.FromSequences(s, ORF))
@@ -58,7 +61,11 @@ if (sequences.Any())
         var bicodonRates = conservationRates.SelectMany(x => x.BicodonRates);
 
         // aggregate all codon and bicodon conservation rates into a global result
+        
+        Console.WriteLine($"Aggregating codon conservation rates");
         var codonAggregate   = Aggregate.FromRates(codonRates)  .ToArray();
+        
+        Console.WriteLine($"Aggregating bicodon conservation rates");
         var bicodonAggregate = Aggregate.FromRates(bicodonRates).ToArray();
 
         // write final result into a codon and bicodon CSV file respectively, with the current ORF number.
@@ -73,6 +80,7 @@ if (errors.Any())
     var errorLines =
         errors.Select(x => $"Error processing file: {x.FileName}. Error Details: {x.Exception}");
 
+    Console.WriteLine("-------------------------------------------");
     Console.WriteLine($"Writing error details to file: {errorsFile}");
     File.WriteAllLines(errorsFile, errorLines);
 }
@@ -81,4 +89,5 @@ else if (File.Exists(errorsFile))
     File.Delete(errorsFile);
 }
 
+Console.WriteLine("-------------------------------------------");
 Console.WriteLine($"Process Completed in: {stopwatch.Elapsed}");
