@@ -6,9 +6,9 @@ This is a C# port of the BioSeeker project: https://github.com/SouthernBio/BioSe
 
 .NET 7.0
 
- - [Install on Linux](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2304#install-the-sdk)
+ - [Install on Linux](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-2304#install-the-sdk) (install the SDK only, the Runtime is already included)
 
- - [Install on Mac](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+ - [Install on Mac](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) (see SDK option in the left side of the page)
 
 ## Instructions
 
